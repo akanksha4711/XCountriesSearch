@@ -17,7 +17,9 @@ const Tile = ({name, img, alt}) => {
         marginTop :"10px"
     }}>
         <img src={img} alt={alt} style={{width: "100px", height: "100px"}}/>
-        <h3>{name}</h3>
+        <h2>{name}</h2>
+        <p></p>
+        <span></span>
     </div>
     )
 }
@@ -44,8 +46,7 @@ const Countries = () => {
 
     const handleChange = (e) => {
         const query = e.target.value;
-        console.log(query);
-        const newCountries = countries.filter((country) => country.name.common.includes(query));
+        const newCountries = countries.filter((country) => country.name.common.toLowerCase().includes(query.toLowerCase()));
         setFilteredCountries(newCountries);
     }
 
